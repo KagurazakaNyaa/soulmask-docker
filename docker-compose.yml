@@ -1,0 +1,27 @@
+services:
+  dedicated-server:
+    image: kagurazakanyaa/soulmask:latest
+    # build: # only use in test
+    #   context: .
+    restart: unless-stopped
+    network_mode: bridge
+    ports:
+      - 7777:7777/udp
+      - 27015:27015/udp
+      # - 18888:18888/tcp # only use if want managed by telnet
+    environment:
+      - GAME_PORT=7777
+      - QUERY_PORT=27015
+      - ECHO_PORT=18888
+      - MAX_PLAYERS=20
+      - SERVER_NAME="Soulmask Server"
+      - SAVED_DIR_SUFFIX=
+      - SERVER_PASSWORD=
+      - ADMIN_PASSWORD=changeme
+      - INIT_BACKUP=true
+      - BACKUP_INTERVAL_MINUTES=10
+      - SAVING_SYNC_INTERVAL_SECONDS=600
+      - BACKUP_SYNC_INTERVAL_SECONDS=900
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - ./data:/opt/soulmask/LinuxServer/WS/Saved
