@@ -20,6 +20,13 @@ fi
 if [[ -n $SERVER_PASSWORD ]]; then
     extra_opts="$extra_opts -PSW=\"${SERVER_PASSWORD}\""
 fi
+if [[ -n $GAME_MODE ]]; then
+    if [[ $INIT_BACKUP == "pve" ]]; then
+        extra_opts="$extra_opts -pve"
+    elif [[ $INIT_BACKUP == "pvp" ]]; then
+        extra_opts="$extra_opts -pvp"
+    fi
+fi
 
 if [ $# -eq 0 ]; then
     proc_result=128

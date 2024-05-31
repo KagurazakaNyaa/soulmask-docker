@@ -24,6 +24,7 @@ services:
       - BACKUP_INTERVAL_MINUTES=10
       - SAVING_SYNC_INTERVAL_SECONDS=600
       - BACKUP_SYNC_INTERVAL_SECONDS=900
+      - GAME_MODE=pve
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - ./data:/opt/soulmask/WS/Saved

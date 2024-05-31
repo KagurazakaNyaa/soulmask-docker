@@ -27,6 +27,7 @@ The variables in the table below affect the server's startup command, see <https
 | BACKUP_INTERVAL_MINUTES      | Specifies how often (minutes) to automatically back up the world save.                                        | 10              | Positive integer |
 | SAVING_SYNC_INTERVAL_SECONDS | Specifies the interval for writing game objects to the database (unit: seconds).                              | 600             | Positive integer |
 | BACKUP_SYNC_INTERVAL_SECONDS | Specifies the interval for writing the game database to disk (unit: seconds).                                 | 900             | Positive integer |
+| GAME_MODE                    | Specifies the game mode.                                                                                      | pve             | pve/pvp          |
 | FORCE_UPDATE                 | Whether the server should be update each time start.                                                          | false           | true/false       |
 
 ## Volumes
