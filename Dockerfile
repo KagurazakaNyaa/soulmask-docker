@@ -7,6 +7,7 @@ RUN /home/steam/steamcmd/steamcmd.sh +force_install_dir "/opt/soulmask" +login a
 
 ENV FORCE_UPDATE=false
 
+ENV LEVEL_NAME=Level01_Main
 ENV GAME_PORT=7777
 ENV QUERY_PORT=27015
 ENV ECHO_PORT=18888
@@ -25,7 +26,7 @@ ADD docker-entrypoint.sh /docker-entrypoint.sh
 EXPOSE ${GAME_PORT}/udp ${QUERY_PORT}/udp ${ECHO_PORT}/tcp
 
 # fix permission
-RUN mkdir -p /opt/soulmask/LinuxServer/WS/Saved
-VOLUME [ "/opt/soulmask/LinuxServer/WS/Saved"]
+RUN mkdir -p /opt/soulmask/WS/Saved
+VOLUME [ "/opt/soulmask/WS/Saved"]
 
 ENTRYPOINT [ "/docker-entrypoint.sh" ]

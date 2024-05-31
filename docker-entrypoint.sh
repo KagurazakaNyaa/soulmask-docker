@@ -26,7 +26,7 @@ if [ $# -eq 0 ]; then
     proc_serial=1
     while [ $proc_result == 128 ]; do
         /home/steam/steamcmd/steamcmd.sh +login anonymous +quit
-        ./WSServer.sh Level01_Main -server -SLIENT -log -UTF8Output -SteamServerName="${SERVER_NAME}" -MaxPlayers="${MAX_PLAYERS}" -backup="${BACKUP_SYNC_INTERVAL_SECONDS}" -saving="${SAVING_SYNC_INTERVAL_SECONDS}" -MULTIHOME=0.0.0.0 -Port="${GAME_PORT}" -QueryPort="${QUERY_PORT}" -EchoPort="${ECHO_PORT}" -online=Steam -forcepassthrough "${extra_opts}"
+        ./WSServer.sh "${LEVEL_NAME}" -server -SLIENT -log -UTF8Output -SteamServerName="${SERVER_NAME}" -MaxPlayers="${MAX_PLAYERS}" -backup="${BACKUP_SYNC_INTERVAL_SECONDS}" -saving="${SAVING_SYNC_INTERVAL_SECONDS}" -MULTIHOME=0.0.0.0 -Port="${GAME_PORT}" -QueryPort="${QUERY_PORT}" -EchoPort="${ECHO_PORT}" -online=Steam -forcepassthrough "${extra_opts}"
         proc_result=$?
         echo $proc_result
         proc_serial=$((proc_serial + 1))

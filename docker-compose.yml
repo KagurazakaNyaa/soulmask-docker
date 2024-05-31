@@ -10,6 +10,8 @@ services:
       - 27015:27015/udp
       # - 18888:18888/tcp # only use if want managed by telnet
     environment:
+      - FORCE_UPDATE=false
+      # - LEVEL_NAME=Level01_Main # do not change this
       - GAME_PORT=7777
       - QUERY_PORT=27015
       - ECHO_PORT=18888
@@ -24,4 +26,4 @@ services:
       - BACKUP_SYNC_INTERVAL_SECONDS=900
     volumes:
       - /etc/localtime:/etc/localtime:ro
-      - ./data:/opt/soulmask/LinuxServer/WS/Saved
+      - ./data:/opt/soulmask/WS/Saved
