@@ -17,7 +17,7 @@ services:
       - QUERY_PORT=27015
       - ECHO_PORT=18888
       - MAX_PLAYERS=20
-      - SERVER_NAME="Soulmask Server"
+      - SERVER_NAME=Soulmask Server
       - SAVED_DIR_SUFFIX=
       - SERVER_PASSWORD=
       - ADMIN_PASSWORD=changeme
