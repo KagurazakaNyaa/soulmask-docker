@@ -1,6 +1,10 @@
 FROM cm2network/steamcmd:steam
 
+USER root
 ARG DEBIAN_FRONTEND=noninteractive
+RUN apt-get update && apt-get install -y netcat-openbsd && apt-get clean
+
+USER steam
 WORKDIR /opt/soulmask
 
 RUN /home/steam/steamcmd/steamcmd.sh +force_install_dir "/opt/soulmask" +login anonymous +app_update 3017300 validate +quit

@@ -2,11 +2,9 @@
 set -e
 # SIGTERM-handler
 term_handler() {
-    if [ "$pid" -ne 0 ]; then
-        kill -SIGTERM "$pid"
-        wait "$pid"
-    fi
-    exit 143 # 128 + 15 -- SIGTERM
+    printf 'exit 1\r\n' | nc localhost "$ECHO_PORT"
+    wait "$pid"
+    exit 0
 }
 
 if [[ -n $FORCE_UPDATE ]] && [[ $FORCE_UPDATE == "true" ]]; then
@@ -37,7 +35,7 @@ if [[ -n $GAME_MODE ]]; then
     fi
 fi
 
-trap 'kill ${!}; term_handler' SIGTERM
+trap 'term_handler' SIGTERM SIGHUP SIGINT EXIT
 if [ $# -eq 0 ]; then
     proc_result=128
     proc_serial=1
