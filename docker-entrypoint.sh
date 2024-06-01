@@ -30,9 +30,9 @@ if [[ -n $SERVER_PASSWORD ]]; then
     extra_opts="$extra_opts -PSW=\"${SERVER_PASSWORD}\""
 fi
 if [[ -n $GAME_MODE ]]; then
-    if [[ $INIT_BACKUP == "pve" ]]; then
+    if [[ $GAME_MODE == "pve" ]]; then
         extra_opts="$extra_opts -pve"
-    elif [[ $INIT_BACKUP == "pvp" ]]; then
+    elif [[ $GAME_MODE == "pvp" ]]; then
         extra_opts="$extra_opts -pvp"
     fi
 fi
