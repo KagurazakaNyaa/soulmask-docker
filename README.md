@@ -24,9 +24,9 @@ The variables in the table below affect the server's startup command, see <https
 | SERVER_PASSWORD              | Server password, private servers can specify a password, players must enter the password to enter the server. |                 | string           |
 | ADMIN_PASSWORD               | GM activation password.Open GM Panel (`gm key [password]`)                                                    | changeme        | string           |
 | INIT_BACKUP                  | Backs up game saves when the game starts.                                                                     | false           | true/false       |
-| BACKUP_INTERVAL_MINUTES      | Specifies how often (minutes) to automatically back up the world save.                                        | 10              | Positive integer |
-| SAVING_SYNC_INTERVAL_SECONDS | Specifies the interval for writing game objects to the database (unit: seconds).                              | 600             | Positive integer |
-| BACKUP_SYNC_INTERVAL_SECONDS | Specifies the interval for writing the game database to disk (unit: seconds).                                 | 900             | Positive integer |
+| BACKUP_INTERVAL_MINUTES      | Specifies how often (minutes) to automatically back up the world save.                                        | 30              | Positive integer |
+| SAVING_SYNC_INTERVAL_SECONDS | Specifies the interval for writing game objects to the database (unit: seconds).                              | 120             | Positive integer |
+| BACKUP_SYNC_INTERVAL_SECONDS | Specifies the interval for writing the game database to disk (unit: seconds).                                 | 120             | Positive integer |
 | GAME_MODE                    | Specifies the game mode.                                                                                      | pve             | pve/pvp          |
 | FORCE_UPDATE                 | Whether the server should be update each time start.                                                          | false           | true/false       |
 

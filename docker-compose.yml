@@ -22,9 +22,9 @@ services:
       - SERVER_PASSWORD=
       - ADMIN_PASSWORD=changeme
       - INIT_BACKUP=true
-      - BACKUP_INTERVAL_MINUTES=10
-      - SAVING_SYNC_INTERVAL_SECONDS=600
-      - BACKUP_SYNC_INTERVAL_SECONDS=900
+      - BACKUP_INTERVAL_MINUTES=30
+      - SAVING_SYNC_INTERVAL_SECONDS=120
+      - BACKUP_SYNC_INTERVAL_SECONDS=120
       - GAME_MODE=pve
     volumes:
       - /etc/localtime:/etc/localtime:ro
