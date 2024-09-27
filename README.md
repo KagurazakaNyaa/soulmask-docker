@@ -12,6 +12,7 @@ Soulmask dedicated server with docker
 ## Environments
 
 The variables in the table below affect the server's startup command, see <https://soulmask.fandom.com/wiki/Private_Server>
+
 | Variable                     | Describe                                                                                                      | Default Values  | Allowed Values   |
 |------------------------------|---------------------------------------------------------------------------------------------------------------|-----------------|------------------|
 | LEVEL_NAME                   | Specifies the game scene name, currently there is only one: Level01_Main.                                     | Level01_Main    | Level01_Main     |
@@ -23,6 +24,7 @@ The variables in the table below affect the server's startup command, see <https
 | SAVED_DIR_SUFFIX             | Specifies this game instance used saved directory suffix, string type.                                        |                 | string           |
 | SERVER_PASSWORD              | Server password, private servers can specify a password, players must enter the password to enter the server. |                 | string           |
 | ADMIN_PASSWORD               | GM activation password.Open GM Panel (`gm key [password]`)                                                    | changeme        | string           |
+| MOD_ID_LIST                  | Mod's workshop ID list, split by `,`.                                                                         |                 | integer list     |
 | INIT_BACKUP                  | Backs up game saves when the game starts.                                                                     | false           | true/false       |
 | BACKUP_INTERVAL_MINUTES      | Specifies how often (minutes) to automatically back up the world save.                                        | 30              | Positive integer |
 | SAVING_SYNC_INTERVAL_SECONDS | Specifies the interval for writing game objects to the database (unit: seconds).                              | 120             | Positive integer |

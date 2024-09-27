@@ -7,7 +7,11 @@ RUN apt-get update && apt-get install -y netcat-openbsd && apt-get clean
 USER steam
 WORKDIR /opt/soulmask
 
-RUN /home/steam/steamcmd/steamcmd.sh +force_install_dir "/opt/soulmask" +login anonymous +app_update 3017300 validate +quit
+RUN /home/steam/steamcmd/steamcmd.sh \
+    +force_install_dir "/opt/soulmask" \
+    +login anonymous \
+    +app_update 3017300 validate \
+    +quit
 
 ENV FORCE_UPDATE=false
 
@@ -25,8 +29,9 @@ ENV BACKUP_INTERVAL_MINUTES=30
 ENV SAVING_SYNC_INTERVAL_SECONDS=120
 ENV BACKUP_SYNC_INTERVAL_SECONDS=120
 ENV GAME_MODE=pve
+ENV MOD_ID_LIST=
 
-ADD docker-entrypoint.sh /docker-entrypoint.sh
+COPY --chmod=0755 docker-entrypoint.sh /docker-entrypoint.sh
 
 EXPOSE ${GAME_PORT}/udp ${QUERY_PORT}/udp ${ECHO_PORT}/tcp
 

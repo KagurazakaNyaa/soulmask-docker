@@ -26,6 +26,7 @@ services:
       - SAVING_SYNC_INTERVAL_SECONDS=120
       - BACKUP_SYNC_INTERVAL_SECONDS=120
       - GAME_MODE=pve
+      - MOD_ID_LIST=
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - ./data:/opt/soulmask/WS/Saved

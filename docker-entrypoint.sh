@@ -34,6 +34,9 @@ if [[ -n $GAME_MODE ]]; then
         extra_opts+=("-pvp")
     fi
 fi
+if [[ -n $MOD_ID_LIST ]]; then
+    extra_opts+=("-mod=\"${MOD_ID_LIST}\"")
+fi
 
 trap 'term_handler' SIGTERM SIGHUP SIGINT EXIT
 if [ $# -eq 0 ]; then
