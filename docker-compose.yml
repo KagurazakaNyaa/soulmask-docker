@@ -7,13 +7,13 @@ services:
     stop_grace_period: 60s
     network_mode: bridge
     ports:
-      - 7777:7777/udp
+      - 8777:8777/udp
       - 27015:27015/udp
       # - 18888:18888/tcp # only use if want managed by telnet
     environment:
       - FORCE_UPDATE=false
       # - LEVEL_NAME=Level01_Main # do not change this
-      - GAME_PORT=7777
+      - GAME_PORT=8777
       - QUERY_PORT=27015
       - ECHO_PORT=18888
       - MAX_PLAYERS=20

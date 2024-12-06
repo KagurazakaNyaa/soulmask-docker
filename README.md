@@ -16,7 +16,7 @@ The variables in the table below affect the server's startup command, see <https
 | Variable                     | Describe                                                                                                      | Default Values  | Allowed Values   |
 |------------------------------|---------------------------------------------------------------------------------------------------------------|-----------------|------------------|
 | LEVEL_NAME                   | Specifies the game scene name, currently there is only one: Level01_Main.                                     | Level01_Main    | Level01_Main     |
-| GAME_PORT                    | Specifies the game port, UDP, needs to be open to the public.                                                 | 7777            | 1024-65535       |
+| GAME_PORT                    | Specifies the game port, UDP, needs to be open to the public.                                                 | 8777            | 1024-65535       |
 | QUERY_PORT                   | Specifies the Steam query port, UDP, needs to be open to the public.                                          | 27015           | 1024-65535       |
 | ECHO_PORT                    | Maintenance port, used for local telnet server maintenance, TCP, does not need to be open.                    | 18888           | 1024-65535       |
 | MAX_PLAYERS                  | Specifies the maximum number of players the game instance can support.                                        | 20              | Positive integer |
