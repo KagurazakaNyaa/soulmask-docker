@@ -22,6 +22,9 @@ The variables in the table below affect the server's startup command, see <https
 | MAX_PLAYERS                  | Specifies the maximum number of players the game instance can support.                                        | 20              | Positive integer |
 | SERVER_NAME                  | Specifies the name of the game instance displayed in the server list, string type.                            | Soulmask Server | string           |
 | SAVED_DIR_SUFFIX             | Specifies this game instance used saved directory suffix, string type.                                        |                 | string           |
+| SOULMASK_SERVER_ID           | Unique server ID within a cluster. Required on clustered servers.                                             |                 | Positive integer |
+| SOULMASK_CLUSTER_MAIN_PORT   | Main server cluster port. Setting this makes the server act as the cluster main server.                       |                 | 1024-65535       |
+| SOULMASK_CLUSTER_MAIN_CONNECT| Main server address for client cluster servers. Setting this makes the server act as a cluster client.       |                 | IP:PORT          |
 | SERVER_PASSWORD              | Server password, private servers can specify a password, players must enter the password to enter the server. |                 | string           |
 | ADMIN_PASSWORD               | GM activation password.Open GM Panel (`gm key [password]`)                                                    | changeme        | string           |
 | MOD_ID_LIST                  | Mod's workshop ID list, split by `,`.                                                                         |                 | integer list     |
@@ -41,3 +44,33 @@ The variables in the table below affect the server's startup command, see <https
 NOTE: If you use bind instead of volume to mount, you need to manually change the volume owner to uid=1000.
 In the case of the docker-compose.yml of the example, you need to execute `chown -R 1000:1000 ./data`
 Please make sure the permissions and owners of the pak file you placed in the mods directory are correct.
+
+## Cluster
+
+- `SOULMASK_SERVER_ID` is required for any clustered server.
+- Use `SOULMASK_CLUSTER_MAIN_PORT` on the main server, or `SOULMASK_CLUSTER_MAIN_CONNECT` on client servers.
+- Outbound character transfer is controlled by the in-game Cross-server Mode setting (`KaiQiKuaFu` in `GameplaySettings/GameXishu.json`) and is not managed by container environment variables.
+
+### Main server example
+
+```yaml
+services:
+  dedicated-server:
+    environment:
+      - SERVER_NAME=Soulmask Cluster Main
+      - SOULMASK_SERVER_ID=1
+      - SOULMASK_CLUSTER_MAIN_PORT=18000
+```
+
+### Client server example
+
+```yaml
+services:
+  dedicated-server:
+    environment:
+      - SERVER_NAME=Soulmask Cluster Node 2
+      - SOULMASK_SERVER_ID=2
+      - SOULMASK_CLUSTER_MAIN_CONNECT=192.168.1.10:18000
+```
+
+Replace `192.168.1.10:18000` with the address and cluster port exposed by your main server. Each server in the cluster must use a unique `SOULMASK_SERVER_ID`.

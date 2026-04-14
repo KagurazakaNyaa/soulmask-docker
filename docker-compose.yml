@@ -19,6 +19,9 @@ services:
       - MAX_PLAYERS=20
       - SERVER_NAME=Soulmask Server
       - SAVED_DIR_SUFFIX=
+      - SOULMASK_SERVER_ID=
+      - SOULMASK_CLUSTER_MAIN_PORT=
+      - SOULMASK_CLUSTER_MAIN_CONNECT=
       - SERVER_PASSWORD=
       - ADMIN_PASSWORD=changeme
       - INIT_BACKUP=true

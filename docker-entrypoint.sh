@@ -21,6 +21,15 @@ fi
 if [[ -n $SAVED_DIR_SUFFIX ]]; then
     extra_opts+=("-saveddirsuffix=\"${SAVED_DIR_SUFFIX}\"")
 fi
+if [[ -n $SOULMASK_SERVER_ID ]]; then
+    extra_opts+=("-serverid=${SOULMASK_SERVER_ID}")
+fi
+if [[ -n $SOULMASK_CLUSTER_MAIN_PORT ]]; then
+    extra_opts+=("-mainserverport=${SOULMASK_CLUSTER_MAIN_PORT}")
+fi
+if [[ -n $SOULMASK_CLUSTER_MAIN_CONNECT ]]; then
+    extra_opts+=("-clientserverconnect=${SOULMASK_CLUSTER_MAIN_CONNECT}")
+fi
 if [[ -n $ADMIN_PASSWORD ]]; then
     extra_opts+=("-adminpsw=\"${ADMIN_PASSWORD}\"")
 fi
