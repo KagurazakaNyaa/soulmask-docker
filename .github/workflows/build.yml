@@ -23,7 +23,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v5
         with:
-          images: ${{ steps.hub.outputs.username }}/soulmask
+          images: h3xx1st/soulmask
 
       - name: Build and push
         id: docker_build
