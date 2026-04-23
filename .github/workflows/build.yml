@@ -1,6 +1,11 @@
 name: Build Docker Image
 
 on:
+  workflow_dispatch:
+    inputs:
+      desc:
+        description: "desc"
+        required: false
   push:
     tags:
       - "*"
