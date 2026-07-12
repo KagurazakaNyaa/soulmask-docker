@@ -28,6 +28,7 @@ The variables in the table below affect the server's startup command, see <https
 | SERVER_PASSWORD               | Server password, private servers can specify a password, players must enter the password to enter the server. |                 | string                        |
 | ADMIN_PASSWORD                | GM activation password.Open GM Panel (`gm key [password]`)                                                    | changeme        | string                        |
 | MOD_ID_LIST                   | Mod's workshop ID list, split by `,`.                                                                         |                 | integer list                  |
+| ENABLE_LOOSE_MODS             | Allow for loading non-Steam mods                                                                              | false           | true/false                    |
 | INIT_BACKUP                   | Backs up game saves when the game starts.                                                                     | false           | true/false                    |
 | BACKUP_INTERVAL_MINUTES       | Specifies how often (minutes) to automatically back up the world save.                                        | 30              | Positive integer              |
 | SAVING_SYNC_INTERVAL_SECONDS  | Specifies the interval for writing game objects to the database (unit: seconds).                              | 120             | Positive integer              |
@@ -37,9 +38,10 @@ The variables in the table below affect the server's startup command, see <https
 
 ## Volumes
 
-| Path                     | Describe               |
-|--------------------------|------------------------|
-| `/opt/soulmask/WS/Saved` | Game config and saves. |
+| Path                                  | Describe               |
+|---------------------------------------|------------------------|
+| `/opt/soulmask/WS/Saved`              | Game config and saves. |
+| `/opt/soulmask/WS/Content/Paks/~mods` | Loose Mod files.       |
 
 NOTE: If you use bind instead of volume to mount, you need to manually change the volume owner to uid=1000.
 In the case of the docker-compose.yml of the example, you need to execute `chown -R 1000:1000 ./data`

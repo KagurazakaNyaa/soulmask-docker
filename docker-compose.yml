@@ -30,6 +30,8 @@ services:
       - BACKUP_SYNC_INTERVAL_SECONDS=120
       - GAME_MODE=pve
       - MOD_ID_LIST=
+      - ENABLE_LOOSE_MODS=false
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - ./data:/opt/soulmask/WS/Saved
+      - ./mods:/opt/soulmask/WS/Content/Paks/~mods

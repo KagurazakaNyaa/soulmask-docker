@@ -46,6 +46,11 @@ fi
 if [[ -n $MOD_ID_LIST ]]; then
     extra_opts+=("-mod=\"${MOD_ID_LIST}\"")
 fi
+if [[ -n $ENABLE_LOOSE_MODS ]]; then
+    if [[ $ENABLE_LOOSE_MODS == "true" ]]; then
+        extra_opts+=("-fileopenlog")
+    fi
+fi
 
 trap 'term_handler' SIGTERM SIGHUP SIGINT EXIT
 if [ $# -eq 0 ]; then

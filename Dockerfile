@@ -33,6 +33,7 @@ ENV SAVING_SYNC_INTERVAL_SECONDS=120
 ENV BACKUP_SYNC_INTERVAL_SECONDS=120
 ENV GAME_MODE=pve
 ENV MOD_ID_LIST=
+ENV ENABLE_LOOSE_MODS=false
 
 COPY --chmod=0755 docker-entrypoint.sh /docker-entrypoint.sh
 
@@ -40,6 +41,6 @@ EXPOSE ${GAME_PORT}/udp ${QUERY_PORT}/udp ${ECHO_PORT}/tcp
 
 # fix permission
 RUN mkdir -p /opt/soulmask/WS/Saved
-VOLUME [ "/opt/soulmask/WS/Saved"]
+VOLUME [ "/opt/soulmask/WS/Saved", "/opt/soulmask/WS/Content/Paks/~mods" ]
 
 ENTRYPOINT [ "/docker-entrypoint.sh" ]
